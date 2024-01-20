@@ -93,12 +93,24 @@
         margin-top: 20px;
         text-align: center;
       }
+      video {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        z-index: -1;
+      }
     </style>
   </head>
   <body>
+    <video autoplay muted loop>
+      <source src="Video.mp4" type="video/mp4" />
+    </video>
+
     <h1>UPES</h1>
 
-    <!-- Main Form - Login Form -->
     <form id="loginForm">
       <label for="username">Username:</label>
       <input type="text" id="username" name="username" required />
