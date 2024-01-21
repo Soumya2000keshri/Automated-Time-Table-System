@@ -38,8 +38,11 @@
       h1 {
         color: #4caf50;
         margin-bottom: 50px;
-        text-align: top;
-
+        text-align: left;
+        position: absolute;
+        top: 0;
+        left: 250px;
+        margin-top: 10px; 
       }
 
       form {
@@ -104,6 +107,7 @@
         object-fit: cover;
         z-index: -1;
       }
+      
     </style>
   </head>
   <body>
@@ -111,7 +115,7 @@
       <source src="Video.mp4" type="video/mp4" />
     </video>
 
-    <h1>Time Table Portal</h1>
+    <h1 >Time Table Portal</h1>
     <form id="loginForm">
       <label style="color: white" for="username">Username:</label>
       <input type="text" id="username" name="username" required />
