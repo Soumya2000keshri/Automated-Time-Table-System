@@ -18,10 +18,19 @@
         padding: 20px;
         margin-top: 20px;
       }
+
+      #timetableContainer {
+        display: none;
+      }
+
+      #timetableSettings {
+        margin-top: 20px;
+      }
+      
     </style>
   </head>
   <body>
-    <h1>Welcome, <span id="facultyName"></span>!</h1>
+    <h1>Welcome to My UPES! <span id="facultyName"></span></h1>
 
     <div id="facultyInfo">
       <h2>Faculty Information</h2>
@@ -33,10 +42,17 @@
       <!-- Add more faculty information as needed -->
 
       <!-- Button for setting timetable -->
-      <button onclick="setTimetable()">Set Timetable</button>
+      <button onclick="toggleTimetable()">Set Timetable</button>
     </div>
 
-    <script src="app.js"></script>
+    <div id="timetableContainer">
+      <div id="timetableSettings">
+        <h2>Timetable Settings</h2>
+        <!-- Add your timetable setting form here -->
+        <!-- For example, you can use input fields to let the user set their timetable -->
+      </div>
+    </div>
+
+    <script src="ss1.js"></script>
   </body>
 </html>
-<!-- added file -->
