@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Faculty Information</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+
+        h1 {
+            color: #333;
+        }
+
+        #facultyInfo {
+            border: 1px solid #ccc;
+            padding: 20px;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+<h1>Welcome, <span id="facultyName"></span>!</h1>
+
+<div id="facultyInfo">
+    <h2>Faculty Information</h2>
+    <p><strong>Name:</strong> <span id="facultyUsername"></span></p>
+    <p><strong>Department:</strong> <span id="facultyDepartment"></span></p>
+    <p><strong>Phone Number:</strong> <span id="facultyPhoneNumber"></span></p>
+    <!-- Add more faculty information as needed -->
+
+    <!-- Button for setting timetable -->
+    <button onclick="setTimetable()">Set Timetable</button>
+</div>
+
+<script src="app.js"></script>
+</body>
+</html>
