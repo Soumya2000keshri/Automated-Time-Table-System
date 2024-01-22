@@ -140,7 +140,7 @@
         <p><strong>Department:</strong> <span id="facultyDepartment"></span></p>
         <p><strong>E-mail id:</strong> <span id="facultyEmailid"></span></p>
         <p><strong>Phone Number:</strong> <span id="facultyPhoneNumber"></span></p>
-        <button onclick="toggleTimetable()">Set Timetable</button>
+        <button onclick="showTimetableForm()">Set Timetable</button>
     </div>
     
     
@@ -148,61 +148,136 @@
 
       <!-- Button for setting timetable -->
       
-    </div>
+      <div id="timetableContainer">
+        <h2>Timetable Settings</h2>
+        <form id="timetableForm">
+            <label for="block">Select Block:</label>
+            <select id="block" onchange="updateClassOptions()">
+                <option value="block1">Block 1</option>
+                <option value="block2">Block 2</option>
+                <option value="block3">Block 3</option>
+                <option value="block4">Block 4</option>
+                <option value="block5">Block 5</option>
+                <option value="block6">Block 6</option>
+                <option value="block7">Block 7</option>
+                <option value="block8">Block 8</option>
+                <option value="block9">Block 9</option>
+                <option value="block10">Block 10</option>
+                <option value="block11">Block 11</option>
+            </select>
 
-    <div id="timetableContainer">
-      <div id="timetableSettings">
-        <!-- Timetable setting form -->
-        <form>
-          <label for="day">Select Day:</label>
-          <select id="day" name="day">
-            <option value="monday">Monday</option>
-            <option value="tuesday">Tuesday</option>
-            <!-- Add more options as needed -->
-          </select>
+            <label for="class">Select Room No.:</label>
+            <select id="class">
+                <!-- Class options will be dynamically updated -->
+            </select>
 
-          <label for="time">Select Time:</label>
-          <input type="time" id="time" name="time" />
+            <label for="subject">Select Subject:</label>
+            <select id="subject">
+                <option value="sub1">Physics</option>
+                <option value="sub2">Discrete Mathematics</option>
+                <option value="sub3">C-language</option>
+                <option value="sub4">Python</option>
+            </select>
 
-          <label for="subject">Enter Subject:</label>
-          <input type="text" id="subject" name="subject" />
-
-          <button type="submit">Save Timetable</button>
+            <button type="button" onclick="saveTimetable()">Save Timetable</button>
         </form>
-      </div>
     </div>
+</div>
 
-    <script src="ss1.js"></script>
-    <script src="app.js"></script>
+<script>
+    function showTimetableForm() {
+        var facultyName = document.getElementById('facultyUsername').textContent;
+        var facultyDepartment = document.getElementById('facultyDepartment').textContent;
+        var facultyPhoneNumber = document.getElementById('facultyPhoneNumber').textContent;
 
-    <script>
-      // Fetch faculty information after login
-      fetch("http://localhost:3000/login", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          username: "faculty_username", // Replace with the actual username
-          password: "faculty_password", // Replace with the actual password
-        }),
-      });
+        document.getElementById('timetableContainer').style.display = 'block';
 
-      // Function to handle faculty information
-      function handleFacultyInformation(facultyInfo) {
-        document.getElementById("facultyName").innerText = facultyInfo.username;
-        document.getElementById("facultyUsername").innerText =
-          facultyInfo.username;
-        document.getElementById("facultyDepartment").innerText =
-          facultyInfo.department;
-        document.getElementById("facultyPhoneNumber").innerText =
-          facultyInfo.phoneNumber;
+        // Additional logic to populate or update form with faculty information
+    }
 
-        // Set the profile picture source
-        const profileImage = document.getElementById("profileImage");
-        profileImage.src =
-          facultyInfo.profilePicture || "default-profile-image.jpg";
-      }
-    </script>
-  </body>
+    function saveTimetable() {
+        var selectedBlock = document.getElementById('block').value;
+        var selectedClass = document.getElementById('class').value;
+        var selectedSubject = document.getElementById('subject').value;
+
+        alert(`Timetable saved!\nBlock: ${selectedBlock}\nClass: ${selectedClass}\nSubject: ${selectedSubject}`);
+    }
+
+    function updateClassOptions() {
+        var selectedBlock = document.getElementById('block').value;
+        var classSelect = document.getElementById('class');
+
+        // Clear existing options
+        classSelect.innerHTML = '';
+
+        // Add new options based on the selected block
+        if (selectedBlock === 'block1') {
+            addOption(classSelect, '1', 'Room 1001');
+            addOption(classSelect, '2', 'Room 1002');
+            addOption(classSelect, '3', 'Room 1003');
+        } else if (selectedBlock === 'block2') {
+            addOption(classSelect, '1', 'Room 2001');
+            addOption(classSelect, '2', 'Room 2002');
+            addOption(classSelect, '3', 'Room 2003');
+        }
+        else if (selectedBlock === 'block3') {
+            addOption(classSelect, '1', 'Room 3001');
+            addOption(classSelect, '2', 'Room 3002');
+            addOption(classSelect, '3', 'Room 3003');
+        }
+        else if (selectedBlock === 'block4') {
+            addOption(classSelect, '1', 'Room 4001');
+            addOption(classSelect, '2', 'Room 4002');
+            addOption(classSelect, '3', 'Room 4003');
+        }
+        else if (selectedBlock === 'block4') {
+            addOption(classSelect, '1', 'Room 4001');
+            addOption(classSelect, '2', 'Room 4002');
+            addOption(classSelect, '3', 'Room 4003');
+        }
+        else if (selectedBlock === 'block5') {
+            addOption(classSelect, '1', 'Room 5001');
+            addOption(classSelect, '2', 'Room 5002');
+            addOption(classSelect, '3', 'Room 5003');
+        }
+        else if (selectedBlock === 'block6') {
+            addOption(classSelect, '1', 'Room 7001');
+            addOption(classSelect, '2', 'Room 7002');
+            addOption(classSelect, '3', 'Room 7003');
+        }else if (selectedBlock === 'block7') {
+            addOption(classSelect, '1', 'Room 7001');
+            addOption(classSelect, '2', 'Room 7002');
+            addOption(classSelect, '3', 'Room 7003');
+        }else if (selectedBlock === 'block8') {
+            addOption(classSelect, '1', 'Room 48001');
+            addOption(classSelect, '2', 'Room 48002');
+            addOption(classSelect, '3', 'Room 48003');
+        }else if (selectedBlock === 'block9') {
+            addOption(classSelect, '1', 'Room 9001');
+            addOption(classSelect, '2', 'Room 9002');
+            addOption(classSelect, '3', 'Room 9003');
+        }
+        else if (selectedBlock === 'block10') {
+            addOption(classSelect, '1', 'Room 10001');
+            addOption(classSelect, '2', 'Room 10002');
+            addOption(classSelect, '3', 'Room 10003');
+        }else if (selectedBlock === 'block11') {
+            addOption(classSelect, '1', 'Room 11001');
+            addOption(classSelect, '2', 'Room 11002');
+            addOption(classSelect, '3', 'Room 11003');
+        }
+
+
+        // Add more conditions as needed
+    }
+
+    function addOption(select, value, text) {
+        var option = document.createElement('option');
+        option.value = value;
+        option.text = text;
+        select.add(option);
+    }
+</script>
+
+</body>
 </html>
