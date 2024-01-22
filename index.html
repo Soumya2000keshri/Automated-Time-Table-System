@@ -13,24 +13,26 @@
             text-align: center;
         }
 
-        h1 {
-            color: #0066cc;
-        }
 
         #facultyInfo {
-            background-color: #ffffff;
+            background-color: #8fa1c6;
             border-radius: 10px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            padding: 30px;
+            padding: 20px;
             margin-top: 20px;
             display: inline-block;
-        }
+            width: 1415px; /* Set a specific width, adjust as needed */
+            text-align: left; /* Align content to the left */
+}
+
+
+
 
         #timetableContainer {
             background-color: #ffffff;
             border-radius: 10px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            padding: 50px;
+            padding: 20px;
             margin-top: 20px;
             display: none;
         }
@@ -87,11 +89,14 @@
             border-radius: 5px;
             cursor: pointer;
         }
+
     </style>
 </head>
 <body>
 
-<h1>Welcome to My UPES! <span id="facultyName"></span></h1>
+
+
+<img src="logo.jpg" alt="Your Image Description" style="width: 10%; height: auto; max-width: 800px; margin: 0; float: left;"/>
 
 <div id="facultyInfo">
 
@@ -99,6 +104,7 @@
     <h2>Faculty Information</h2>
     <p><strong>Name:</strong> <span id="facultyUsername"></span></p>
     <p><strong>Department:</strong> <span id="facultyDepartment"></span></p>
+    <p><strong>E-mail id:</strong> <span id="facultyEmailid"></span></p>
     <p><strong>Phone Number:</strong> <span id="facultyPhoneNumber"></span></p>
     <!-- Add more faculty information as needed -->
 
