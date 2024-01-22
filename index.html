@@ -115,6 +115,21 @@
       nav a:hover {
         color: #0b0b0b;
       }
+      table {
+            width: 100%;
+            margin-top: 20px;
+            border-collapse: collapse;
+        }
+
+        table, th, td {
+            border: 1px solid #ddd;
+        }
+
+        th, td {
+            padding: 15px;
+            text-align: center;
+        }
+
     </style>
   </head>
   <body>
@@ -125,8 +140,8 @@
     />
     <nav>
       <ul>
-        <li><a href="#home">Home</a></li>
-        <li><a href="#about">Log Out</a></li>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="Register1.html">Log Out</a></li>
 
         <!-- Add more navigation items as needed -->
       </ul>
@@ -179,8 +194,48 @@
                 <option value="sub4">Python</option>
             </select>
             <br>
+            <h3>Timetable:</h3>
+            <table>
+                <tr>
+                    <th>Day</th>
+                    <th>Time Slot</th>
+                    <th>Date</th>
+                </tr>
+                <tr>
+                    <td>Monday</td>
+                    <td><input type="text" id="mondaySlot" /></td>
+                    <td><input type="date" id="mondayDate" /></td>
+                </tr>
+                <tr>
+                  <td>Tuesday</td>
+                  <td><input type="text" id="mondaySlot" /></td>
+                  <td><input type="date" id="mondayDate" /></td>
+              </tr>
+              <tr>
+                <td>Wednesday</td>
+                <td><input type="text" id="mondaySlot" /></td>
+                <td><input type="date" id="mondayDate" /></td>
+            </tr>
+            <tr>
+              <td>Thursday</td>
+              <td><input type="text" id="mondaySlot" /></td>
+              <td><input type="date" id="mondayDate" /></td>
+          </tr>
+          <tr>
+            <td>Friday</td>
+            <td><input type="text" id="mondaySlot" /></td>
+            <td><input type="date" id="mondayDate" /></td>
+            <tr>
+              <td>Saturday</td>
+              <td><input type="text" id="mondaySlot" /></td>
+              <td><input type="date" id="mondayDate" /></td>
+          </tr>
+        </tr>
+                <!-- Add rows for Tuesday to Saturday -->
+            </table>
 
             <button type="button" onclick="saveTimetable()">Save Timetable</button>
+            <button type="button" onclick="downloadTimetable()">Download Timetable</button>
         </form>
     </div>
 </div>
@@ -201,7 +256,23 @@
         var selectedClass = document.getElementById('class').value;
         var selectedSubject = document.getElementById('subject').value;
 
-        alert(`Timetable saved!\nBlock: ${selectedBlock}\nClass: ${selectedClass}\nSubject: ${selectedSubject}`);
+          // Get timetable data for Monday
+          var mondaySlot = document.getElementById('mondaySlot').value;
+        var mondayDate = document.getElementById('mondayDate').value;
+
+        // You can now save this timetable data as needed
+        // For now, let's just display an alert with the collected data
+
+        alert(`Timetable saved!\nBlock: ${selectedBlock}\nClass: ${selectedClass}\nSubject: ${selectedSubject}
+        Monday: ${mondaySlot} at ${mondayDate}\n
+            // Add more days and time slots as needed
+            `);
+    }
+
+    function downloadTimetable() {
+        // Implement logic to download the timetable
+        // For now, let's just display a message
+        alert("Timetable downloaded!");
     }
 
     function updateClassOptions() {
