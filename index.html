@@ -1,169 +1,208 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
+  <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>My UPES Faculty Portal</title>
     <style>
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            margin: 20px;
-            background-color: #f5f5f5;
-            color: #333;
-            text-align: center;
-        }
+      body {
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        margin: 20px;
+        background-color: #f5f5f5;
+        color: #333;
+        text-align: center;
+      }
 
+      #facultyInfo {
+        background-color: #8fa1c6;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        padding: 20px;
+        margin-top: 20px;
+        display: inline-block;
+        width: 1426px; /* Set a specific width, adjust as needed */
+        text-align: left; /* Align content to the left */
+      }
 
-        #facultyInfo {
-            background-color: #8fa1c6;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            padding: 20px;
-            margin-top: 20px;
-            display: inline-block;
-            width: 1415px; /* Set a specific width, adjust as needed */
-            text-align: left; /* Align content to the left */
-}
+      #timetableContainer {
+        background-color: #ffffff;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        padding: 20px;
+        margin-top: 20px;
+        display: none;
+      }
 
+      #timetableSettings {
+        margin-top: 20px;
+      }
 
+      button {
+        background-color: #0066cc;
+        color: #ffffff;
+        border: none;
+        padding: 10px 20px;
+        font-size: 16px;
+        cursor: pointer;
+        border-radius: 5px;
+        transition: background-color 0.3s;
+      }
 
+      button:hover {
+        background-color: #005bb5;
+      }
 
-        #timetableContainer {
-            background-color: #ffffff;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            padding: 20px;
-            margin-top: 20px;
-            display: none;
-        }
+      input,
+      select {
+        padding: 15px;
+        margin: 10px;
+        font-size: 16px;
+        width: 300px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+      }
 
-        #timetableSettings {
-            margin-top: 20px;
-        }
+      label {
+        display: block;
+        margin-bottom: 10px;
+        font-size: 14px;
+        font-weight: bold;
+      }
 
-        button {
-            background-color: #0066cc;
-            color: #ffffff;
-            border: none;
-            padding: 10px 20px;
-            font-size: 16px;
-            cursor: pointer;
-            border-radius: 5px;
-            transition: background-color 0.3s;
-        }
+      #profileImage {
+        border-radius: 50%;
+        margin-bottom: 20px;
+      }
 
-        button:hover {
-            background-color: #005bb5;
-        }
+      #imageInput {
+        display: none;
+      }
 
-        input, select {
-            padding: 15px;
-            margin: 10px;
-            font-size: 16px;
-            width: 300px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-        }
+      #imageLabel {
+        background-color: #0066cc;
+        color: #ffffff;
+        padding: 10px 15px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+      }
+      nav {
+        background-color: #ffffff;
+        border-radius: 10px;
+        padding-left: 86%;
+        text-align: center;
+      }
 
-        label {
-            display: block;
-            margin-bottom: 10px;
-            font-size: 14px;
-            font-weight: bold;
-        }
+      nav ul {
+        list-style-type: none;
+        margin: 0;
+        padding: 16px;
+      }
 
-        #profileImage {
-            border-radius: 50%;
-            margin-bottom: 20px;
-        }
+      nav li {
+        display: inline;
+        margin-right: 20px;
+      }
 
-        #imageInput {
-            display: none;
-        }
+      nav a {
+        text-decoration: none;
+        color: #000000;
+        font-weight: bold;
+        font-size: 18px;
+        transition: color 0.3s;
+      }
 
-        #imageLabel {
-            background-color: #0066cc;
-            color: #ffffff;
-            padding: 10px 15px;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-        }
-
+      nav a:hover {
+        color: #0b0b0b;
+      }
     </style>
-</head>
-<body>
+  </head>
+  <body>
+    <img
+      src="logo.jpg"
+      alt="Your Image Description"
+      style="width: 10%; height: 50px; max-width: 800px; margin: 0; float: left"
+    />
+    <nav>
+      <ul>
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">Log Out</a></li>
 
+        <!-- Add more navigation items as needed -->
+      </ul>
+    </nav>
 
+    <div id="facultyInfo">
+        <!-- Faculty Information display -->
+        <img _ngcontent-fyp-c411="" class="user-avatar" src="female-no-image.jpg" style="float: right; margin-right: 10px; margin-top: 3%; width: 150px;">
+        <h2>Faculty Information</h2>
+        <p><strong>Name:</strong> <span id="facultyUsername"></span></p>
+        <p><strong>Department:</strong> <span id="facultyDepartment"></span></p>
+        <p><strong>E-mail id:</strong> <span id="facultyEmailid"></span></p>
+        <p><strong>Phone Number:</strong> <span id="facultyPhoneNumber"></span></p>
+        <button onclick="toggleTimetable()">Set Timetable</button>
+    </div>
+    
+    
+      <!-- Add more faculty information as needed -->
 
-<img src="logo.jpg" alt="Your Image Description" style="width: 10%; height: auto; max-width: 800px; margin: 0; float: left;"/>
+      <!-- Button for setting timetable -->
+      
+    </div>
 
-<div id="facultyInfo">
-
-    <!-- Faculty Information display -->
-    <h2>Faculty Information</h2>
-    <p><strong>Name:</strong> <span id="facultyUsername"></span></p>
-    <p><strong>Department:</strong> <span id="facultyDepartment"></span></p>
-    <p><strong>E-mail id:</strong> <span id="facultyEmailid"></span></p>
-    <p><strong>Phone Number:</strong> <span id="facultyPhoneNumber"></span></p>
-    <!-- Add more faculty information as needed -->
-
-    <!-- Button for setting timetable -->
-    <button onclick="toggleTimetable()">Set Timetable</button>
-</div>
-
-<div id="timetableContainer">
-    <div id="timetableSettings">
+    <div id="timetableContainer">
+      <div id="timetableSettings">
         <!-- Timetable setting form -->
         <form>
-            <label for="day">Select Day:</label>
-            <select id="day" name="day">
-                <option value="monday">Monday</option>
-                <option value="tuesday">Tuesday</option>
-                <!-- Add more options as needed -->
-            </select>
+          <label for="day">Select Day:</label>
+          <select id="day" name="day">
+            <option value="monday">Monday</option>
+            <option value="tuesday">Tuesday</option>
+            <!-- Add more options as needed -->
+          </select>
 
-            <label for="time">Select Time:</label>
-            <input type="time" id="time" name="time">
+          <label for="time">Select Time:</label>
+          <input type="time" id="time" name="time" />
 
-            <label for="subject">Enter Subject:</label>
-            <input type="text" id="subject" name="subject">
+          <label for="subject">Enter Subject:</label>
+          <input type="text" id="subject" name="subject" />
 
-            <button type="submit">Save Timetable</button>
+          <button type="submit">Save Timetable</button>
         </form>
+      </div>
     </div>
-</div>
 
-<script src="ss1.js"></script>
-<script src="app.js"></script>
+    <script src="ss1.js"></script>
+    <script src="app.js"></script>
 
-<script>
-// Fetch faculty information after login
-fetch("http://localhost:3000/login", {
-    method: "POST",
-    headers: {
-        "Content-Type": "application/json",
-    },
-    body: JSON.stringify({
-        username: "faculty_username", // Replace with the actual username
-        password: "faculty_password", // Replace with the actual password
-    }),
-})
+    <script>
+      // Fetch faculty information after login
+      fetch("http://localhost:3000/login", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          username: "faculty_username", // Replace with the actual username
+          password: "faculty_password", // Replace with the actual password
+        }),
+      });
 
+      // Function to handle faculty information
+      function handleFacultyInformation(facultyInfo) {
+        document.getElementById("facultyName").innerText = facultyInfo.username;
+        document.getElementById("facultyUsername").innerText =
+          facultyInfo.username;
+        document.getElementById("facultyDepartment").innerText =
+          facultyInfo.department;
+        document.getElementById("facultyPhoneNumber").innerText =
+          facultyInfo.phoneNumber;
 
-// Function to handle faculty information
-function handleFacultyInformation(facultyInfo) {
-    document.getElementById("facultyName").innerText = facultyInfo.username;
-    document.getElementById("facultyUsername").innerText = facultyInfo.username;
-    document.getElementById("facultyDepartment").innerText = facultyInfo.department;
-    document.getElementById("facultyPhoneNumber").innerText = facultyInfo.phoneNumber;
-
-    // Set the profile picture source
-    const profileImage = document.getElementById("profileImage");
-    profileImage.src = facultyInfo.profilePicture || "default-profile-image.jpg";
-}
-
-</script>
-
-</body>
+        // Set the profile picture source
+        const profileImage = document.getElementById("profileImage");
+        profileImage.src =
+          facultyInfo.profilePicture || "default-profile-image.jpg";
+      }
+    </script>
+  </body>
 </html>
