@@ -1,58 +1,163 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+<head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Faculty Information</title>
+    <title>My UPES Faculty Portal</title>
     <style>
-      body {
-        font-family: Arial, sans-serif;
-        margin: 20px;
-      }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 20px;
+            background-color: #f5f5f5;
+            color: #333;
+            text-align: center;
+        }
 
-      h1 {
-        color: #333;
-      }
+        h1 {
+            color: #0066cc;
+        }
 
-      #facultyInfo {
-        padding: 20px;
-        margin-top: 20px;
-      }
+        #facultyInfo {
+            background-color: #ffffff;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 30px;
+            margin-top: 20px;
+            display: inline-block;
+        }
 
-      #timetableContainer {
-        display: none;
-      }
+        #timetableContainer {
+            background-color: #ffffff;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 50px;
+            margin-top: 20px;
+            display: none;
+        }
 
-      #timetableSettings {
-        margin-top: 20px;
-      }
-      
+        #timetableSettings {
+            margin-top: 20px;
+        }
+
+        button {
+            background-color: #0066cc;
+            color: #ffffff;
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: #005bb5;
+        }
+
+        input, select {
+            padding: 15px;
+            margin: 10px;
+            font-size: 16px;
+            width: 300px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 10px;
+            font-size: 14px;
+            font-weight: bold;
+        }
+
+        #profileImage {
+            border-radius: 50%;
+            margin-bottom: 20px;
+        }
+
+        #imageInput {
+            display: none;
+        }
+
+        #imageLabel {
+            background-color: #0066cc;
+            color: #ffffff;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
     </style>
-  </head>
-  <body>
-    <h1>Welcome to My UPES! <span id="facultyName"></span></h1>
+</head>
+<body>
 
-    <div id="facultyInfo">
-      <h2>Faculty Information</h2>
-      <p><strong>Name:</strong> <span id="facultyUsername"></span></p>
-      <p><strong>Department:</strong> <span id="facultyDepartment"></span></p>
-      <p>
-        <strong>Phone Number:</strong> <span id="facultyPhoneNumber"></span>
-      </p>
-      <!-- Add more faculty information as needed -->
+<h1>Welcome to My UPES! <span id="facultyName"></span></h1>
 
-      <!-- Button for setting timetable -->
-      <button onclick="toggleTimetable()">Set Timetable</button>
+<div id="facultyInfo">
+
+    <!-- Faculty Information display -->
+    <h2>Faculty Information</h2>
+    <p><strong>Name:</strong> <span id="facultyUsername"></span></p>
+    <p><strong>Department:</strong> <span id="facultyDepartment"></span></p>
+    <p><strong>Phone Number:</strong> <span id="facultyPhoneNumber"></span></p>
+    <!-- Add more faculty information as needed -->
+
+    <!-- Button for setting timetable -->
+    <button onclick="toggleTimetable()">Set Timetable</button>
+</div>
+
+<div id="timetableContainer">
+    <div id="timetableSettings">
+        <!-- Timetable setting form -->
+        <form>
+            <label for="day">Select Day:</label>
+            <select id="day" name="day">
+                <option value="monday">Monday</option>
+                <option value="tuesday">Tuesday</option>
+                <!-- Add more options as needed -->
+            </select>
+
+            <label for="time">Select Time:</label>
+            <input type="time" id="time" name="time">
+
+            <label for="subject">Enter Subject:</label>
+            <input type="text" id="subject" name="subject">
+
+            <button type="submit">Save Timetable</button>
+        </form>
     </div>
+</div>
 
-    <div id="timetableContainer">
-      <div id="timetableSettings">
-        <h2>Timetable Settings</h2>
-        <!-- Add your timetable setting form here -->
-        <!-- For example, you can use input fields to let the user set their timetable -->
-      </div>
-    </div>
+<script src="ss1.js"></script>
+<script src="app.js"></script>
 
-    <script src="ss1.js"></script>
-  </body>
+<script>
+// Fetch faculty information after login
+fetch("http://localhost:3000/login", {
+    method: "POST",
+    headers: {
+        "Content-Type": "application/json",
+    },
+    body: JSON.stringify({
+        username: "faculty_username", // Replace with the actual username
+        password: "faculty_password", // Replace with the actual password
+    }),
+})
+
+
+// Function to handle faculty information
+function handleFacultyInformation(facultyInfo) {
+    document.getElementById("facultyName").innerText = facultyInfo.username;
+    document.getElementById("facultyUsername").innerText = facultyInfo.username;
+    document.getElementById("facultyDepartment").innerText = facultyInfo.department;
+    document.getElementById("facultyPhoneNumber").innerText = facultyInfo.phoneNumber;
+
+    // Set the profile picture source
+    const profileImage = document.getElementById("profileImage");
+    profileImage.src = facultyInfo.profilePicture || "default-profile-image.jpg";
+}
+
+</script>
+
+</body>
 </html>
