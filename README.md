@@ -1,1 +1,1 @@
-**An application which uses decision knowledge tree to suggest crops based on different parameters**
+**The automated timetable system streamlines scheduling for faculty by allowing them to select preferred time slots based on availability and preferences. Through intuitive interfaces, instructors efficiently customize their schedules, optimizing classroom usage and minimizing conflicts. This user-friendly system enhances productivity, ensuring a seamless allocation of resources and promoting efficient academic operations.**
