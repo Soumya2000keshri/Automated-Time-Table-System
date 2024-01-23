@@ -8,7 +8,7 @@
     <style>
       body {
         font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-        background-color: #f4f4f4;
+        background-color: #347d86;
         margin-right: 20;
         padding-right: 50px;;
         display: flex;
@@ -35,8 +35,9 @@
         text-decoration: underline;
       }
 
+
       form {
-        background-color: rgba(99, 86, 248, 0.427);
+        background-color: rgba(29, 37, 37, 0.25);
         padding: 50px;
         border-radius: 8px;
         box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
@@ -45,7 +46,9 @@
         text-align: center;
         transition: opacity 0.5s, transform 0.5s;
         margin-bottom: 20px;
+        margin-right: 900px;
       }
+
 
       label {
         display: block;
@@ -102,20 +105,20 @@
   </head>
   <body>
     <video autoplay muted loop>
-      <source src="Video.mp4" type="video/mp4" />
+      <source src="Untitled design.mp4" type="video/mp4" />
     </video>
     
 
     <form id="loginForm">
       <img src="logo.jpg" alt="Your Image Description" style="width: 100%; height: auto; max-width: 800px; margin: 0 auto; display: block;"/>
       <br>
-      <h3 _ngcontent-epc-c48="" style="color: white" class="mb-0 mr-4 mt-2 league-spartan-bold page-info-text"> Time Table Portal </h3>
+      <h3 _ngcontent-epc-c48="" style="color: rgb(13, 12, 12)" class="mb-0 mr-4 mt-2 league-spartan-bold page-info-text"> Time Table Portal </h3>
       <br>
 
-      <label style="color: white" for="username">Username:</label>
+      <label style="color: rgb(14, 13, 13)" for="username">Username:</label>
       <input type="text" id="username" name="username" required />
 
-      <label style="color: white" for="password">Password:</label>
+      <label style="color: rgb(13, 12, 12)" for="password">Password:</label>
       <input type="password" id="password" name="password" required />
 
       <button type="button" onclick="login()">Login</button>
@@ -143,10 +146,10 @@
           const data = await response.json();
 
           if (response.ok) {
-            // Redirect to index.html after successful login
+            
             window.location.href = "index.html";
           } else {
-            // Display detailed error message
+           
             alert(`Login failed: ${data.error || "An error occurred"}`);
           }
         } catch (error) {
@@ -155,7 +158,7 @@
         }
       }
 
-      // Directly show the login form
+      
       fadeIn("loginForm");
 
       function fadeIn(elementId) {
