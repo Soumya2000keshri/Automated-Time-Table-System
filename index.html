@@ -35,6 +35,7 @@
 
       #timetableSettings {
         margin-top: 20px;
+        
       }
 
       button {
@@ -52,7 +53,9 @@
         background-color: #005bb5;
       }
 
-      input,
+      input{
+        width: 120px;
+      }
       select {
         padding: 15px;
         margin: 10px;
@@ -128,7 +131,24 @@
         th, td {
             padding: 15px;
             text-align: center;
+            block-size: 10px;
         }
+
+        /* Additional styles for subject columns */
+    th.subject {
+      writing-mode: horizontal-tb;
+
+    }
+
+    td.subject {
+      vertical-align: top;
+    }
+
+    .mondayDate {
+        text-align: left;
+    }
+
+
 
     </style>
   </head>
@@ -166,6 +186,20 @@
       <div id="timetableContainer">
         <h2>Timetable Settings</h2>
         <form id="timetableForm">
+
+          <label for="semester">Select Semester:</label>
+          <select id="semester">
+              <option value="1">Semester 1</option>
+              <option value="2">Semester 2</option>
+              <option value="3">Semester 3</option>
+              <option value="4">Semester 4</option>
+              <option value="5">Semester 5</option>
+              <option value="6">Semester 6</option>
+              <option value="7">Semester 7</option>
+              <option value="8">Semester 8</option>
+          </select>
+
+
             <label for="block">Select Block:</label>
             <select id="block" onchange="updateClassOptions()">
                 <option value="block1">Block 1</option>
@@ -194,43 +228,89 @@
                 <option value="sub4">Python</option>
             </select>
             <br>
+            <td >Select Date<input type="date" id="mondayDate" /></td>
             <h3>Timetable:</h3>
             <table>
-                <tr>
-                    <th>Day</th>
-                    <th>Time Slot</th>
-                    <th>Date</th>
-                </tr>
-                <tr>
-                    <td>Monday</td>
-                    <td><input type="text" id="mondaySlot" /></td>
-                    <td><input type="date" id="mondayDate" /></td>
-                </tr>
-                <tr>
-                  <td>Tuesday</td>
-                  <td><input type="text" id="mondaySlot" /></td>
-                  <td><input type="date" id="mondayDate" /></td>
+
+              <tr>
+                <th>Day</th>
+                <!-- Add subject columns -->
+                <th class="subject">Physics</th>
+                <th class="subject">Discrete Mathematics</th>
+                <th class="subject">C-language</th>
+                <th class="subject">Python</th>
+                <th class="subject">Learning How To Learn</th>
+                <th class="subject">Operating System</th>
+                <th class="subject">DBMS</th>
+                <th class="subject">Working with data</th>
               </tr>
               <tr>
-                <td>Wednesday</td>
-                <td><input type="text" id="mondaySlot" /></td>
-                <td><input type="date" id="mondayDate" /></td>
+                <td>Monday</td>
+                <td><input type="text" id="m1" /></td>
+                <td><input type="text" id="m2" /></td>
+                <td><input type="text" id="m3" /></td>
+                <td><input type="text" id="m4" /></td>
+                <td><input type="text" id="m5" /></td>
+                <td><input type="text" id="m6" /></td>
+                <td><input type="text" id="m7" /></td>
+                <td><input type="text" id="m8" /></td>
+              </tr>
+              <tr>
+                <td>Tuesday</td>
+                <td><input type="text" id="t1" /></td>
+                <td><input type="text" id="t2" /></td>
+                <td><input type="text" id="t3" /></td>
+                <td><input type="text" id="t4" /></td>
+                <td><input type="text" id="t5" /></td>
+                <td><input type="text" id="t6" /></td>
+                <td><input type="text" id="t7" /></td>
+                <td><input type="text" id="t8" /></td>
+
             </tr>
             <tr>
-              <td>Thursday</td>
-              <td><input type="text" id="mondaySlot" /></td>
-              <td><input type="date" id="mondayDate" /></td>
+              <td>Wednesday</td>
+              <td><input type="text" id="w1" /></td>
+              <td><input type="text" id="w2" /></td>
+              <td><input type="text" id="w3" /></td>
+              <td><input type="text" id="w4" /></td>
+              <td><input type="text" id="w5" /></td>
+              <td><input type="text" id="w6" /></td>
+              <td><input type="text" id="w7" /></td>
+              <td><input type="text" id="w8" /></td>
           </tr>
           <tr>
-            <td>Friday</td>
-            <td><input type="text" id="mondaySlot" /></td>
-            <td><input type="date" id="mondayDate" /></td>
-            <tr>
-              <td>Saturday</td>
-              <td><input type="text" id="mondaySlot" /></td>
-              <td><input type="date" id="mondayDate" /></td>
-          </tr>
+            <td>Thursday</td>
+            <td><input type="text" id="th1" /></td>
+            <td><input type="text" id="th2" /></td>
+            <td><input type="text" id="th3" /></td>
+            <td><input type="text" id="th4" /></td>
+            <td><input type="text" id="th5" /></td>
+            <td><input type="text" id="th6" /></td>
+            <td><input type="text" id="th7" /></td>
+            <td><input type="text" id="th8" /></td>
         </tr>
+        <tr>
+          <td>Friday</td>
+          <td><input type="text" id="f1" /></td>
+          <td><input type="text" id="f2" /></td>
+          <td><input type="text" id="f3" /></td>
+          <td><input type="text" id="f4" /></td>
+          <td><input type="text" id="f5" /></td>
+          <td><input type="text" id="f6" /></td>
+          <td><input type="text" id="f7" /></td>
+          <td><input type="text" id="f8" /></td>
+          <tr>
+            <td>Saturday</td>
+            <td><input type="text" id="s1" /></td>
+            <td><input type="text" id="s2" /></td>
+            <td><input type="text" id="s3" /></td>
+            <td><input type="text" id="s4" /></td>
+            <td><input type="text" id="s5" /></td>
+            <td><input type="text" id="s6" /></td>
+            <td><input type="text" id="s7" /></td>
+            <td><input type="text" id="s8" /></td>
+        </tr>
+      </tr>
                 <!-- Add rows for Tuesday to Saturday -->
             </table>
 
